@@ -38,6 +38,7 @@ New library features
 Standard library changes
 ------------------------
 * The `nextprod` function now accepts tuples and other array types for its first argument ([#35791]).
+* `Libdl` has been moved to `Base`, however it is still accessible as an stdlib ([#35628]).
 
 #### LinearAlgebra
 
