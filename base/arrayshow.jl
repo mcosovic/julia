@@ -166,7 +166,7 @@ function print_matrix(io::IO, X::AbstractVecOrMat,
                       vdots::AbstractString = "\u22ee",
                       ddots::AbstractString = "  \u22f1  ",
                       hmod::Integer = 5, vmod::Integer = 5)
-    if !get(io, :limit, false)
+    if !(get(io, :limit, false)::Bool)
         screenheight = screenwidth = typemax(Int)
     else
         sz = displaysize(io)
@@ -371,7 +371,7 @@ preceded by `prefix`, supposed to encode the type of the elements.
 """
 function _show_nonempty(io::IO, X::AbstractMatrix, prefix::String)
     @assert !isempty(X)
-    limit = get(io, :limit, false)::Bool
+    limit::Bool = get(io, :limit, false)
     indr, indc = axes(X,1), axes(X,2)
     nr, nc = length(indr), length(indc)
     rdots, cdots = false, false
