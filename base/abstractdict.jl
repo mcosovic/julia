@@ -516,7 +516,7 @@ convert(::Type{T}, x::T) where {T<:AbstractDict} = x
 
 function convert(::Type{T}, x::AbstractDict) where T<:AbstractDict
     h = T(x)
-    if length(h)::Int != length(x)::Int
+    if length(h) != length(x)
         error("key collision during dictionary conversion")
     end
     return h
